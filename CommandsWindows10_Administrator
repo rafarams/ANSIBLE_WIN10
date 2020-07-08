@@ -1,0 +1,5 @@
+#1- Select “Start” and type “CMD“.
+#2- Right-click “Command Prompt” then choose “Run as administrator“.
+#3- If prompted, enter a username and password that grants admin rights to the computer.
+#4- ype: net user administrator /active:yes.
+#5- Press “Enter“.
