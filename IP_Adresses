@@ -1,0 +1,14 @@
+#Red Hat (Ansible Machine)
+#IP Address: 10.0.0.2
+#Mask: 255.255.255.0
+#Gateway: 10.0.0.1
+
+#Windows 10 (VM 1)
+#IP Address: 10.0.0.3
+#Mask: 255.255.255.0
+#Gateway: 10.0.0.1
+
+#Windows 10 (VM 2)
+#IP Address: 10.0.0.4
+#Mask: 255.255.255.0
+#Gateway: 10.0.0.1
