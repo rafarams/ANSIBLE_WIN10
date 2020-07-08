@@ -1,0 +1,9 @@
+#Command 1
+winrm enumerate winrm/config/Listener
+
+#Command 2 (For Win 10 VM #1)
+winrm -r:http://MSEDGEWIN10:5985/wsman -u:Administrator -p:Passw0rd! ipconfig
+
+#Command 2 (For Win 10 VM #2)
+winrm -r:http://MSEDGEWIN20:5985/wsman -u:Administrator -p:Passw0rd! ipconfig
+
