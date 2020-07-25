@@ -1,0 +1,36 @@
+---
+- hosts: windowsserver
+  tasks:
+  - name: Ping Windows Hosts
+    win_ping:
+
+  - name: Windows Setup
+    setup:
+
+  - name: Get Disk Facts
+    win_disk_facts:
+
+  - name: Convert first system disk into various formats
+    debug:
+      msg: '{{ disksize_gib }} vs {{ disksize_gib_human }}'
+    vars:
+      # Get First system disk
+      disk: '{{ansible_facts.disks|selectattr("system_disk")|first }}'
+
+      # Show disk size in Gibibytes
+      disksize_gib_human: '{{ disk.size|filesizeformat(true) }}'
+      disksize_gib: '{{ (disk.size/1024|pow(3))|round|int }} GiB'
+  - name: Stop P2P networking service
+    win_service:
+      name: p2psvc
+      state: stopped
+  - name: Set Maximum password age (90 Days)
+    win_security_policy:
+      section: System Access
+      key: MaximumPasswordAge
+      value: 90
+  - name: Minimum password lenght (8 Characters)
+    win_security_policy:
+      section: System Access
+      key: MinimumPasswordLength
+      value: 8
